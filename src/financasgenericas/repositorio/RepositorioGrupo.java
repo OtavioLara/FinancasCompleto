@@ -5,9 +5,9 @@
  */
 package financasgenericas.repositorio;
 
-import financasgenericas.Grupo;
-import financasgenericas.Usuario;
-import financasgenericas.UsuarioLogado;
+import financasgenericas.model.Grupo;
+import financasgenericas.model.Usuario;
+import financasgenericas.model.UsuarioLogado;
 import financasgenericas.beans.GrupoBeans;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -52,7 +52,7 @@ public class RepositorioGrupo {
         } catch (IOException ex) {
             Logger.getLogger(RepositorioGrupo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter("grupoId.fgd"))) {
+        try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter("grupoId.fgdi"))) {
             buffWrite.write(Long.toString(id));
         } catch (IOException ex) {
             Logger.getLogger(RepositorioGrupo.class.getName()).log(Level.SEVERE, null, ex);
@@ -95,7 +95,7 @@ public class RepositorioGrupo {
             Logger.getLogger(RepositorioUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            BufferedReader buffRead = new BufferedReader(new FileReader("grupoId.fgd"));
+            BufferedReader buffRead = new BufferedReader(new FileReader("grupoId.fgdi"));
             id = Long.parseLong(buffRead.readLine());
             buffRead.close();
         } catch (FileNotFoundException ex) {

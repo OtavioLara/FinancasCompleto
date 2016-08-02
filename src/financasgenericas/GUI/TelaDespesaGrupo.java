@@ -5,10 +5,10 @@
  */
 package financasgenericas.GUI;
 
-import financasgenericas.DividaDespesa;
-import financasgenericas.Grupo;
-import financasgenericas.ItemDespesaGrupo;
-import financasgenericas.Usuario;
+import financasgenericas.model.DividaDespesa;
+import financasgenericas.model.Grupo;
+import financasgenericas.model.ItemDespesaGrupo;
+import financasgenericas.model.Usuario;
 import financasgenericas.controler.ControlerDespesa;
 import financasgenericas.controler.ControlerGrupo;
 import java.awt.Dimension;

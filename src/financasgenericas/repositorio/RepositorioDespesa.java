@@ -5,15 +5,15 @@
  */
 package financasgenericas.repositorio;
 
-import financasgenericas.Despesa;
-import financasgenericas.DespesaGrupo;
-import financasgenericas.DespesaIndividual;
-import financasgenericas.DividaDespesa;
-import financasgenericas.DividaItem;
-import financasgenericas.Item;
-import financasgenericas.ItemDespesaGrupo;
-import financasgenericas.ItemDespesaIndividual;
-import financasgenericas.UsuarioLogado;
+import financasgenericas.model.Despesa;
+import financasgenericas.model.DespesaGrupo;
+import financasgenericas.model.DespesaIndividual;
+import financasgenericas.model.DividaDespesa;
+import financasgenericas.model.DividaItem;
+import financasgenericas.model.Item;
+import financasgenericas.model.ItemDespesaGrupo;
+import financasgenericas.model.ItemDespesaIndividual;
+import financasgenericas.model.UsuarioLogado;
 import financasgenericas.beans.DespesaBeans;
 import financasgenericas.beans.DespesaGrupoBeans;
 import financasgenericas.beans.DespesaIndividualBeans;
@@ -66,7 +66,7 @@ public class RepositorioDespesa {
         } catch (IOException ex) {
             Logger.getLogger(RepositorioGrupo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter("despesaId.fgd"))) {
+        try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter("despesaId.fgdi"))) {
             buffWrite.write(Long.toString(id));
         } catch (IOException ex) {
             Logger.getLogger(RepositorioGrupo.class.getName()).log(Level.SEVERE, null, ex);
@@ -174,7 +174,7 @@ public class RepositorioDespesa {
             Logger.getLogger(RepositorioUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            BufferedReader buffRead = new BufferedReader(new FileReader("despesaId.fgd"));
+            BufferedReader buffRead = new BufferedReader(new FileReader("despesaId.fgdi"));
             id = Long.parseLong(buffRead.readLine());
             buffRead.close();
         } catch (FileNotFoundException ex) {

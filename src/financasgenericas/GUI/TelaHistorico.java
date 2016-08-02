@@ -5,10 +5,10 @@
  */
 package financasgenericas.GUI;
 
-import financasgenericas.Despesa;
-import financasgenericas.DespesaGrupo;
-import financasgenericas.DespesaIndividual;
-import financasgenericas.UsuarioLogado;
+import financasgenericas.model.Despesa;
+import financasgenericas.model.DespesaGrupo;
+import financasgenericas.model.DespesaIndividual;
+import financasgenericas.model.UsuarioLogado;
 import financasgenericas.controler.ControlerDespesa;
 import financasgenericas.controler.ControlerGrupo;
 import financasgenericas.controler.ControlerUsuario;

@@ -5,8 +5,8 @@
  */
 package financasgenericas.controler;
 
-import financasgenericas.Grupo;
-import financasgenericas.Usuario;
+import financasgenericas.model.Grupo;
+import financasgenericas.model.Usuario;
 import financasgenericas.repositorio.RepositorioGrupo;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -5,7 +5,7 @@
  */
 package financasgenericas.GUI;
 
-import financasgenericas.UsuarioLogado;
+import financasgenericas.model.UsuarioLogado;
 import financasgenericas.controler.ControlerUsuario;
 import java.awt.Component;
 import java.awt.GridBagConstraints;

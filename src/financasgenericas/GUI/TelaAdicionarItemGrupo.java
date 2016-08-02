@@ -5,8 +5,8 @@
  */
 package financasgenericas.GUI;
 
-import financasgenericas.DividaItem;
-import financasgenericas.ItemDespesaGrupo;
+import financasgenericas.model.DividaItem;
+import financasgenericas.model.ItemDespesaGrupo;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

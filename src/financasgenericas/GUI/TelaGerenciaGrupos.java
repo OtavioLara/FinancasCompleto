@@ -5,7 +5,7 @@
  */
 package financasgenericas.GUI;
 
-import financasgenericas.Grupo;
+import financasgenericas.model.Grupo;
 import financasgenericas.controler.ControlerGrupo;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

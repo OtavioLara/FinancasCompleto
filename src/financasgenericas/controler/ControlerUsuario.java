@@ -6,7 +6,7 @@
 package financasgenericas.controler;
 
 import financasgenericas.repositorio.RepositorioUsuario;
-import financasgenericas.Usuario;
+import financasgenericas.model.Usuario;
 import financasgenericas.exceptions.UsuarioJaExistenteException;
 
 /**

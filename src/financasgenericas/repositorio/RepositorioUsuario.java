@@ -6,8 +6,8 @@
 package financasgenericas.repositorio;
 
 import financasgenericas.exceptions.UsuarioJaExistenteException;
-import financasgenericas.Usuario;
-import financasgenericas.UsuarioLogado;
+import financasgenericas.model.Usuario;
+import financasgenericas.model.UsuarioLogado;
 import financasgenericas.beans.UsuarioBeans;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

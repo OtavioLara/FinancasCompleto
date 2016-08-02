@@ -5,9 +5,9 @@
  */
 package financasgenericas.GUI;
 
-import financasgenericas.Grupo;
-import financasgenericas.Usuario;
-import financasgenericas.UsuarioLogado;
+import financasgenericas.model.Grupo;
+import financasgenericas.model.Usuario;
+import financasgenericas.model.UsuarioLogado;
 import financasgenericas.controler.ControlerGrupo;
 import financasgenericas.controler.ControlerUsuario;
 import java.awt.Dimension;

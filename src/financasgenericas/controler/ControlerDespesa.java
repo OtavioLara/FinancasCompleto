@@ -5,12 +5,12 @@
  */
 package financasgenericas.controler;
 
-import financasgenericas.Despesa;
-import financasgenericas.DespesaGrupo;
-import financasgenericas.DespesaIndividual;
-import financasgenericas.DividaDespesa;
-import financasgenericas.ItemDespesaGrupo;
-import financasgenericas.ItemDespesaIndividual;
+import financasgenericas.model.Despesa;
+import financasgenericas.model.DespesaGrupo;
+import financasgenericas.model.DespesaIndividual;
+import financasgenericas.model.DividaDespesa;
+import financasgenericas.model.ItemDespesaGrupo;
+import financasgenericas.model.ItemDespesaIndividual;
 import financasgenericas.repositorio.RepositorioDespesa;
 import static financasgenericas.repositorio.RepositorioDespesa.getAReceberTotalUsuarioLogado;
 import java.util.ArrayList;
