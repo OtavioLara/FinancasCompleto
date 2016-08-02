@@ -66,6 +66,7 @@ public class TelaDespesaGrupo extends TelaLogado {
     private ArrayList<JTextField> txtsNomeContribuinte;
     private HashMap<String, JTextField> usuariosQuePagaram;
     private int totalContribuintes = 0;
+    private boolean jaFez;
 
     public TelaDespesaGrupo() {
         super("Despesa grupo");
@@ -113,10 +114,12 @@ public class TelaDespesaGrupo extends TelaLogado {
         lblInfoIntegrantes = new JLabel();
         usuariosQuePagaram = new HashMap<>();
         cbContribuinte = new JComboBox<>();
-        cbContribuinte.addItem("Selecione usuários que vão pagar");
+
         txtsNomeContribuinte = new ArrayList<>();
         txtsValorContribuido = new ArrayList<>();
+
         itens = new ArrayList<>();
+
         lblNomeDespesa = new JLabel("Nome");
         lblData = new JLabel("Data criação");
         lblDataAlerta = new JLabel("Data alerta");
@@ -188,6 +191,7 @@ public class TelaDespesaGrupo extends TelaLogado {
         lblGrupos = new JLabel("Grupos");
         cbGrupos = new JComboBox<>(getArrayGrupos());
         JPanel painelQuemPagou = new JPanel(getLogadoLayout());
+        jaFez = false;
         cbGrupos.addActionListener((ActionEvent e) -> {
             JComboBox cb = (JComboBox) e.getSource();
             Grupo grupo = (Grupo) cb.getSelectedItem();
@@ -199,17 +203,28 @@ public class TelaDespesaGrupo extends TelaLogado {
             scrollPane.setPreferredSize(new Dimension(300, 200));
             scrollPane.setBorder(javax.swing.BorderFactory.createTitledBorder("Adicione itens a despesa"));
             String[] participante = getArrayParticipantes();
+            cbContribuinte.addItem("Selecione usuários que vão pagar");
             for (int i = 0; i < participante.length; i++) {
                 cbContribuinte.addItem(participante[i]);
             }
-            adicionarComponente(painelQuemPagou, cbContribuinte, 0, 0, 2, GridBagConstraints.BOTH);
-
-            adicionarComponente(painelPrincipal, painelQuemPagou, 5, 0, 3, GridBagConstraints.BOTH);
-            adicionarComponente(painelPrincipal, scrollPane, 6, 0, 3, GridBagConstraints.BOTH);
+            if (!jaFez) {
+                adicionarComponente(painelQuemPagou, cbContribuinte, 0, 0, 2, GridBagConstraints.BOTH);
+                adicionarComponente(painelPrincipal, painelQuemPagou, 5, 0, 3, GridBagConstraints.BOTH);
+                adicionarComponente(painelPrincipal, scrollPane, 6, 0, 3, GridBagConstraints.BOTH);
+                jaFez = true;
+            } else {
+                cbContribuinte.removeAllItems();
+                cbContribuinte.addItem("Selecione usuários que vão pagar");
+                for (int i = 0; i < participante.length; i++) {
+                    cbContribuinte.addItem(participante[i]);
+                }
+                
+            }
             painelQuemPagou.validate();
             painelQuemPagou.repaint();
             painelItens.validate();
             painelItens.repaint();
+            
             pack();
         });
         cbContribuinte.addActionListener(new ActionListener() {

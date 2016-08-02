@@ -26,7 +26,7 @@ import javax.swing.JTextField;
  *
  * @author Otavio
  */
-class TelaCadastro extends JFrame implements ActionListener {
+class TelaCadastro extends JFrame implements ActionListener, Cadastra {
 
     private GridBagLayout gbl;
     private GridBagConstraints gbc;
@@ -74,7 +74,7 @@ class TelaCadastro extends JFrame implements ActionListener {
         txtSenhaNovamente = new JPasswordField(15);
 
         btnCadastrar = new JButton("Cadastrar");
-        getRootPane().setDefaultButton(btnCadastrar); 
+        getRootPane().setDefaultButton(btnCadastrar);
         btnCadastrar.addActionListener(this);
 
         btnCancelar = new JButton("Cancelar");
@@ -136,6 +136,26 @@ class TelaCadastro extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        validaCampos();
+    }
+
+    @Override
+    public void geraObjeto() {
+        try {
+            ControlerUsuario.cadastrarUsuario(txtNome.getText(), txtEmail.getText(), txtUsername.getText(), txtSenha.getText());
+            TelaLogin tl = new TelaLogin();
+            tl.setVisible(true);
+            setVisible(false);
+        } catch (UsuarioJaExistenteException uje) {
+            JOptionPane.showMessageDialog(null, uje.getMessage() + "\nTente outro por favor.", "Usuario já existe", JOptionPane.ERROR_MESSAGE);
+            txtUsername.setBackground(new Color(255, 150, 150));
+            txtUsername.requestFocus();
+        }
+
+    }
+
+    @Override
+    public void validaCampos() {
         if (txtNome.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha os campos para se cadastrar", "Campo Vazio", JOptionPane.ERROR_MESSAGE);
         } else if (txtUsername.getText().isEmpty()) {
@@ -146,20 +166,10 @@ class TelaCadastro extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null, "Digite uma senha para válida", "Campo Vazio", JOptionPane.ERROR_MESSAGE);
         } else if (txtSenhaNovamente.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Confirme a senha digitada", "Campo Vazio", JOptionPane.ERROR_MESSAGE);
-        } else if (!txtSenha.getText().equals(txtSenhaNovamente.getText())){
+        } else if (!txtSenha.getText().equals(txtSenhaNovamente.getText())) {
             JOptionPane.showMessageDialog(null, "As senha digitadas devem ser iguais", "Campo Vazio", JOptionPane.ERROR_MESSAGE);
-        }else{
-            try {
-                ControlerUsuario.cadastrarUsuario(txtNome.getText(), txtEmail.getText(), txtUsername.getText(), txtSenha.getText());
-                TelaLogin tl = new TelaLogin();
-                tl.setVisible(true);
-                setVisible(false);
-            } catch (UsuarioJaExistenteException uje) {
-                JOptionPane.showMessageDialog(null, uje.getMessage() + "\nTente outro por favor.", "Usuario já existe", JOptionPane.ERROR_MESSAGE);
-                txtUsername.setBackground(new Color(255, 150, 150));
-                txtUsername.requestFocus();
-            }
-
+        } else {
+            geraObjeto();
         }
     }
 }

@@ -65,9 +65,12 @@ public class PainelItens extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 TelaAdicionarItemGrupo tg = new TelaAdicionarItemGrupo(tela, integrantes);
                 tg.setVisible(true);
-
-                adicionarMaisUmItem(tg, tela, integrantes, itens);
+                if (tg.retorno() != null) {
+                    adicionarMaisUmItem(tg, tela, integrantes, itens);
+                }
             }
+
+            
         });
 
         adicionarComponente(btnAdicionarItem, 100, 0, 6, GridBagConstraints.CENTER, GridBagConstraints.CENTER);

@@ -11,6 +11,16 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/TelaLogin.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/PainelItens.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/TelaAdicionarItemGrupo.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/TelaCadastro.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/repositorio/RepositorioDespesa.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/repositorio/RepositorioGrupo.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/TelaLogado.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/TelaDespesaIndividual.java</file>
+            <file>file:/C:/Users/Otavio/Documents/NetBeansProjects/Financas/src/financasgenericas/GUI/TelaDespesaGrupo.java</file>
+        </group>
     </open-files>
 </project-private>

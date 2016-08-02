@@ -15,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -79,6 +78,9 @@ public class TelaLogin extends JFrame {
             @Override
             public void focusGained(FocusEvent e) {
                 txtSenha.setBackground(new Color(255, 255, 255));
+                lblInfo.setVisible(false);
+                validate();
+                repaint();
                 pack();
                 setLocationRelativeTo(null);
             }
@@ -89,6 +91,8 @@ public class TelaLogin extends JFrame {
             public void focusGained(FocusEvent e) {
                 txtUsername.setBackground(new Color(255, 255, 255));
                 lblInfo.setVisible(false);
+                validate();
+                repaint();
                 pack();
                 setLocationRelativeTo(null);
             }
