@@ -3,3 +3,5 @@ $ cat .gitignore
 # Use curingas como
 *~
 *.fgd
+*~
+*.fgdi
