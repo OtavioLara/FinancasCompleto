@@ -3,3 +3,4 @@ $ cat .gitignore
 *.fgd
 *~
 *.fgdi
+/dist/

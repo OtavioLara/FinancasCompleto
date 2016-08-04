@@ -1,0 +1,1 @@
+financasgenericas.exceptions.UsuarioNotInItemException
