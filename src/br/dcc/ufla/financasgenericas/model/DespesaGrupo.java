@@ -9,7 +9,6 @@ import br.dcc.ufla.financasgenericas.exceptions.SomaNaoCorrespondeAValorExceptio
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -75,6 +74,13 @@ public class DespesaGrupo extends Despesa{
     public double valorAReceberPeloIntegrante(Usuario usuario){
         return integrantes.get(usuario.getUserName()).valorAreceber();
     }
+    public void setValorPagoPeloParticipante(Usuario usuario, double valorPago){
+        integrantes.get(usuario.getUserName()).pagar(valorPago);
+    }
+    public void setValorRecebidoPeloParticipante(Usuario usuario, double valorRecebido){
+        integrantes.get(usuario.getUserName()).receber(valorRecebido);
+    }
+    
     /**
      * @return the dataAlerta
      */

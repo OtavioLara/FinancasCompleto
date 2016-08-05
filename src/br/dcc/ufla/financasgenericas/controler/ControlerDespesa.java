@@ -32,10 +32,18 @@ public class ControlerDespesa {
     public static HashMap<Long,Despesa> getTotalDespesasDoUsuarioLogado() {
         return RepositorioDespesa.getDespesasDoUsuarioLogado();
     }
-    public double getDividaUsuarioLogado(){
+
+    
+    public static double getDividaUsuarioLogado(){
         return RepositorioDespesa.getDividaTotalUsuarioLogado();
     }
-    public double getAReceberUsuarioLogado(){
+    public static double getAReceberUsuarioLogado(){
         return RepositorioDespesa.getAReceberTotalUsuarioLogado();
+    }
+    public static HashMap<Long,DespesaGrupo> getDepesaEntreUsuario(String username){
+        return RepositorioDespesa.getDespesasEntreUsuarios(username);
+    }
+    public static boolean atualizarDespesa(long idDesp, DespesaGrupo despesa){
+        return RepositorioDespesa.atualizarDespesa(idDesp, despesa);
     }
 }

@@ -54,6 +54,18 @@ public class RepositorioDespesa {
         return true;
     }
 
+    public static boolean atualizarDespesa(long idDesp, DespesaGrupo despesa) {
+        carregarDespesasBeans();
+        if (despesas.containsKey(idDesp)) {
+    //        System.out.println(((DespesaGrupo)despesa).valorAPagarPeloIntegrante(RepositorioUsuario.getUsuario("jojo")));
+            despesas.put(idDesp, despesa);
+  //          System.out.println(((DespesaGrupo)despesas.get(idDesp)).valorAPagarPeloIntegrante(RepositorioUsuario.getUsuario("jojo")));
+            gravarDespesa(despesasToDespesasBeans());
+            return true;
+        }
+        return false;
+    }
+
     private static void gravarDespesa(HashMap<Long, DespesaBeans> despesasToDespesasBeans) {
         try {
             FileOutputStream fo = new FileOutputStream("despesas.fgd");
@@ -294,5 +306,22 @@ public class RepositorioDespesa {
             }
         }
         return valorTotal;
+    }
+
+    public static HashMap<Long, DespesaGrupo> getDespesasEntreUsuarios(String username) {
+        HashMap<Long, Despesa> myDesp = getDespesasDoUsuarioLogado();
+        HashMap<Long, DespesaGrupo> ourDesp = new HashMap<>();
+        if (myDesp != null) {
+            for (Map.Entry<Long, Despesa> entry : myDesp.entrySet()) {
+                Long key = entry.getKey();
+                Despesa value = entry.getValue();
+                if (value instanceof DespesaGrupo) {
+                    if (value.isParticipante(RepositorioUsuario.getUsuario(username))) {
+                        ourDesp.put(key,(DespesaGrupo)value);
+                    }
+                }
+            }
+        }
+        return ourDesp;
     }
 }

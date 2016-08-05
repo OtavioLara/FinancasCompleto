@@ -45,30 +45,31 @@ public class TelaHistorico extends TelaLogado {
 
     private void contruirTabela() {
         HashMap<Long, Despesa> despesas = ControlerDespesa.getTotalDespesasDoUsuarioLogado();
-
-        for (Map.Entry<Long, Despesa> entry : despesas.entrySet()) {
-            Long key = entry.getKey();
-            Despesa value = entry.getValue();
-            Object[] obj = new Object[7];
-            String data = value.getData().getDate() + "/" + (value.getData().getMonth() + 1) + "/" + (value.getData().getYear() + 1900);
-            if (value instanceof DespesaGrupo) {
-                obj[0] = value.getNome();
-                obj[1] = String.format("R$ %.2f", value.getValor());
-                obj[2] = String.format("R$ %.2f", ((DespesaGrupo) value).contribuidoPeloIntegrante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario())));
-                obj[3] = String.format("R$ %.2f", ((DespesaGrupo) value).valorAPagarPeloIntegrante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario())));
-                obj[4] = String.format("R$ %.2f", ((DespesaGrupo) value).valorAReceberPeloIntegrante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario())));
-                obj[5] = data;
-                obj[6] = ControlerGrupo.getGrupoById(((DespesaGrupo) value).getIdGrupo()).getNome();
-            } else if (value instanceof DespesaIndividual) {
-                obj[0] = value.getNome();
-                obj[1] = String.format("R$ %.2f", value.getValor());
-                obj[2] = "        -   ";
-                obj[3] = "        -   ";
-                obj[4] = "        -   ";
-                obj[5] = data;
-                obj[6] = "Individual";
+        if (despesas != null) {
+            for (Map.Entry<Long, Despesa> entry : despesas.entrySet()) {
+                Long key = entry.getKey();
+                Despesa value = entry.getValue();
+                Object[] obj = new Object[7];
+                String data = value.getData().getDate() + "/" + (value.getData().getMonth() + 1) + "/" + (value.getData().getYear() + 1900);
+                if (value instanceof DespesaGrupo) {
+                    obj[0] = value.getNome();
+                    obj[1] = String.format("R$ %.2f", value.getValor());
+                    obj[2] = String.format("R$ %.2f", ((DespesaGrupo) value).contribuidoPeloIntegrante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario())));
+                    obj[3] = String.format("R$ %.2f", ((DespesaGrupo) value).valorAPagarPeloIntegrante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario())));
+                    obj[4] = String.format("R$ %.2f", ((DespesaGrupo) value).valorAReceberPeloIntegrante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario())));
+                    obj[5] = data;
+                    obj[6] = ControlerGrupo.getGrupoById(((DespesaGrupo) value).getIdGrupo()).getNome();
+                } else if (value instanceof DespesaIndividual) {
+                    obj[0] = value.getNome();
+                    obj[1] = String.format("R$ %.2f", value.getValor());
+                    obj[2] = "        -   ";
+                    obj[3] = "        -   ";
+                    obj[4] = "        -   ";
+                    obj[5] = data;
+                    obj[6] = "Individual";
+                }
+                modeloTableItens.addRow(obj);
             }
-            modeloTableItens.addRow(obj);
         }
 
     }

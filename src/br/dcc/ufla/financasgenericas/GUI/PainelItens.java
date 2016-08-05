@@ -97,9 +97,9 @@ public class PainelItens extends JPanel {
         adicionarComponente(painelItem, valorItens.get(totalItens), 0, 3, 1, GridBagConstraints.BOTH);
 
         JCheckBox[] ckIntegrantes = tg.getCheck();
-        JTextField[] txtValWorePorIntegrantes = tg.getValorPorParticipante();
+        JTextField[] txtValorePorIntegrantes = tg.getValorPorParticipante();
 
-        valorItensPorUsuario.add(txtValWorePorIntegrantes);
+        valorItensPorUsuario.add(txtValorePorIntegrantes);
         checkBoxes.add(ckIntegrantes);
 
         for (int i = 0; i < ckIntegrantes.length; i++) {

@@ -18,13 +18,6 @@ public class DividaDespesa extends Divida {
         this.valorPago = valorPago;
     }
 
-    /**
-     * compara duas dividas
-     *
-     * @param outra
-     * @return true se a divida for maior que outra e false se a divida for
-     * maior que a outra
-     */
     public double getValorPago() {
         return valorPago;
     }
@@ -46,6 +39,14 @@ public class DividaDespesa extends Divida {
     }
 
     public void pagar(double valor) {
-        valorPago += valor;
+        if (valorPago <= getValor()) {
+            valorPago += valor;
+        }
+    }
+
+    public void receber(double valor) {
+        if (valor < valorPago) {
+            valorPago -= valor;
+        }
     }
 }

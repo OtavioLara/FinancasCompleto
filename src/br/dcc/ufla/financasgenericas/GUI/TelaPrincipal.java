@@ -93,7 +93,14 @@ public class TelaPrincipal extends TelaLogado {
             }
         });
         btnReceberPagamento = new JButton("Registrar pagamentos");
-
+        btnReceberPagamento.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaReceberPagamento trp = new TelaReceberPagamento();
+                trp.setVisible(true);
+                dispose();
+            }
+        });
         JPanel painelResumo = new JPanel();
         painelResumo.setLayout(getLogadoLayout());
         adicionarComponente(painelResumo, lblDivida, 0, 0, 2, GridBagConstraints.BOTH, new Insets(3, 3, 3, 50));
@@ -106,7 +113,7 @@ public class TelaPrincipal extends TelaLogado {
         painelBotoes.setLayout(new FlowLayout());
         painelBotoes.add(btnCadastrarDespesaGrupo);
         painelBotoes.add(btnCadastrarDespesaIndividual);
-        painelBotoes.add(btnContasPendentes);
+        painelBotoes.add(btnReceberPagamento);
         painelBotoes.add(btnHistorico);
         painelBotoes.add(btnGrupos);
         painelBotoes.add(btnGrupos);
