@@ -74,6 +74,14 @@ public class TelaPrincipal extends TelaLogado {
             }
         });
         btnContasPendentes = new JButton("Contas pendentes");
+        btnContasPendentes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaContasPendentes tcp = new TelaContasPendentes();
+                tcp.setVisible(true);
+                dispose();
+            }
+        });
         btnHistorico = new JButton("Histórico de despesas");
         btnHistorico.addActionListener(new ActionListener() {
             @Override
@@ -114,6 +122,7 @@ public class TelaPrincipal extends TelaLogado {
         painelBotoes.add(btnCadastrarDespesaGrupo);
         painelBotoes.add(btnCadastrarDespesaIndividual);
         painelBotoes.add(btnReceberPagamento);
+        painelBotoes.add(btnContasPendentes);
         painelBotoes.add(btnHistorico);
         painelBotoes.add(btnGrupos);
         painelBotoes.add(btnGrupos);

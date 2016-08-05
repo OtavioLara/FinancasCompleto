@@ -27,7 +27,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import jdk.nashorn.internal.scripts.JO;
 
 /**
  *
@@ -165,8 +164,9 @@ public class PainelReceberPagamento extends JPanel {
                 value.setValorPagoPeloParticipante(ControlerUsuario.getUsuario(username), Double.parseDouble(txtsPagamento.get(posAtual).getText()));
                 value.setValorRecebidoPeloParticipante(ControlerUsuario.getUsuario(UsuarioLogado.getInstance().getUsuario()), Double.parseDouble(txtsPagamento.get(posAtual).getText()));
                 ControlerDespesa.atualizarDespesa(key, value);
+                posAtual++;
             }
-            posAtual++;
+            
         }
     }
 
@@ -182,7 +182,6 @@ public class PainelReceberPagamento extends JPanel {
             } else {
                 txtsPagamento.get(i).setText(Double.toString(valorRecebido));
                 valorRecebido = 0;
-                break;
             }
         }
     }
